@@ -1,0 +1,305 @@
+//Program_1
+
+let c=7000;
+if(c>=7500){
+    console.log("Tera Leader");
+}
+else if(c>=6000 && c<7500){
+    console.log("Gega Leader");
+}
+else if(c>=4500 && c<6000){
+    console.log("Mega Leader");
+}
+else{
+    console.log("Rising Leader");
+}
+
+//Program_2
+
+let amount=500;
+let rate_per_year=10;
+let time_in_years=5;
+let si=amount*rate_per_year*time_in_years/100;
+console.log(si)
+
+//Program_3
+
+function gcd(a,b){
+    if(b==0){
+        return a;
+    }
+    return gcd(b,a%b);
+}
+let n1=80;
+let n2=181;
+console.log(gcd(n1,n2));
+
+//Program_4
+
+let n=100  //ending value of loop
+let cnt=1;
+let start=2;
+process.stdout.write(start+" ");
+while(start<=n){
+    let temp=cnt;
+    while(temp>0){
+        start+=2;
+        temp-=1;
+    }
+    start+=2;
+    process.stdout.write(start+" ");
+    cnt+=2;
+
+}
+
+//Program_5
+
+function find(n){
+    let cnt=0;
+    while(n>0){
+       // console.log(n);
+        n=Math.floor(n/10);
+        cnt+=1;
+    }
+    return cnt;
+}
+let number=12345;
+console.log(find(number));
+
+
+//Program_6
+
+function rev_num(n){
+    let temp=0;
+    while(n>0){
+        temp=temp*10+n%10;
+        n=Math.floor(n/10);
+    }
+    return temp;
+
+}
+let n=12345;
+console.log(rev_num(n));
+
+
+
+
+// All patterns
+function p1(n){
+    for(let i=0;i<n;i++){
+        for(let j=0;j<=i;j++){
+            process.stdout.write('*  ');
+        }
+        console.log();
+    }
+}
+
+function p2(n){
+    for(let i=0;i<n;i++){
+        for(let j=0;j<=i;j++){
+            process.stdout.write((j+1)+'  ');
+        }
+        console.log();
+    }   
+}
+
+function p3(n){
+    for(let i=1;i<=n;i++){
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        for(let num=1;num<=i;num++){
+            process.stdout.write(num+"  ");
+        }
+        for(let num=i-1;num>0;num--){
+            process.stdout.write(num+"  ");
+        }
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        console.log();
+    }  
+}
+function p4(n){
+    for(let i=1;i<=n;i++){
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        for(let num=i;num<=i+i-1;num++){
+            process.stdout.write(num+"  ");
+        }
+        for(let num=2*i-2;num>=i;num--){
+            process.stdout.write(num+"  ");
+        }
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        console.log();
+    }  
+}
+function p5(n){
+    let array=new Array(n);
+    for (let i=0;i<n;i++){
+        array[i]=new Array(i+1);
+    }
+    array[0][0]=1;
+    array[1][0]=1;
+    array[1][1]=1;
+    for(let i=2;i<n;i++){
+        array[i][0]=1;
+        let j=1;
+        for(j=1;j<(i);j++){
+            array[i][j]=array[i-1][j]+array[i-1][j-1];
+        }
+        array[i][i]=1;
+    }
+    for(let i=0;i<n;i++){
+        for(let j=0;j<=i;j++){
+            process.stdout.write(array[i][j]+"  ");
+        }
+        console.log();
+    }
+}
+function p6(n){
+    for(let i=1;i<=n;i++){
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        for(let num=1;num<=i;num++){
+            process.stdout.write("*  ");
+        }
+        for(let num=i-1;num>0;num--){
+            process.stdout.write("*  ");
+        }
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        console.log();
+    }
+    for(let i=n-1;i>0;i--){
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        for(let num=1;num<=i;num++){
+            process.stdout.write("*  ");
+        }
+        for(let num=i-1;num>0;num--){
+            process.stdout.write("*  ");
+        }
+        for(let j=0;j<n-i;j++){
+            process.stdout.write("   ");
+        }
+        console.log();
+    }   
+}
+function p7(n){
+    for(let i=0;i<n;i++){
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        for(let j=0;j<2*n-2*(i+1);j++){
+            process.stdout.write("   ");
+        }
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        console.log();
+    }
+    for(let i=n-2;i>=0;i--){
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        for(let j=0;j<2*n-2*(i+1);j++){
+            process.stdout.write("   ");
+        }
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        console.log();
+    }
+}
+function p8(n){
+    
+    for(let i=n-1;i>=0;i--){
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        for(let j=0;j<2*n-2*(i+1);j++){
+            process.stdout.write("   ");
+        }
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        console.log();
+    }
+    for(let i=1;i<n;i++){
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        for(let j=0;j<2*n-2*(i+1);j++){
+            process.stdout.write("   ");
+        }
+        for(let j=0;j<=i;j++){
+            process.stdout.write("*  ");
+        }
+        console.log();
+    }
+}
+function p9(n){
+    for(let i=n;i>0;i--){
+        let cnt=n;
+        for(let j=0;j<n-1;j++){
+            process.stdout.write(cnt+"  ");
+            cnt--;
+            if(cnt<i){
+                cnt=i;
+            }
+        }
+        process.stdout.write(i+"  ");
+        cnt=i;
+        for(let j=0;j<i-1;j++){
+            process.stdout.write(cnt+"  ");
+        }
+        cnt++;
+        for(let j=0;j<n-i;j++){
+            
+            process.stdout.write(cnt+"  ");
+            cnt++;
+            
+        }
+        console.log();
+    }
+   // console.log("hi");
+    for(let i=2;i<=n;i++){
+      //  console.log("hi");
+        let cnt=n;
+        for(let j=0;j<n-1;j++){
+            process.stdout.write(cnt+"  ");
+            cnt--;
+            if(cnt<i){
+                cnt=i;
+            }
+        }
+        process.stdout.write(i+"  ");
+        cnt=i;
+        for(let j=0;j<i-1;j++){
+            process.stdout.write(cnt+"  ");
+        }
+        cnt++;
+        for(let j=0;j<n-i;j++){
+            
+            process.stdout.write(cnt+"  ");
+            cnt++;
+            
+        }
+        console.log();
+    }
+}
+p1(6);   //pattern_1
+p2(6);   //pattern_2 
+p3(6);   //pattern_3
+p4(6);   //pattern_4
+p5(6);   //pattern_5
+p6(6);   //pattern_5
+p7(6);   //pattern_7
+p9(8);   //pattern_8
